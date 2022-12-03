@@ -12,12 +12,6 @@ public class Teacher {
 
     }
 
-//    public Teacher(String name, int age) {
-//        this.name = name;
-//        this.numberOfStudents = 0;
-//        this.age = age;
-//    }
-
     public String getName() {
         return name;
     }
