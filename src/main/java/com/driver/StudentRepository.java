@@ -28,8 +28,6 @@ public class StudentRepository {
                 List<String> list;
                 list=teacherHashMap.get(teacher1);
                 list.add(student);
-                teacher1.setNumberOfStudents(teacher1.getNumberOfStudents()+1);
-                System.out.println("No of Students..............."+teacher1.getNumberOfStudents());
                 teacherHashMap.put(teacher1,list);
                 return;
             }
