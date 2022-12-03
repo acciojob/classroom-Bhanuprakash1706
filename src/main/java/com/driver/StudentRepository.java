@@ -28,7 +28,7 @@ public class StudentRepository {
                 List<String> list;
                 list=teacherHashMap.get(teacher1);
                 list.add(student);
-                teacher1.setNumberOfStudents(teacher1.getNumberOfStudents()+1);
+                //teacher1.setNumberOfStudents(teacher1.getNumberOfStudents()+1);
                 teacherHashMap.put(teacher1,list);
                 return;
             }
@@ -66,6 +66,10 @@ public class StudentRepository {
     public void deletingTeacherByNameFromDB(String teacher) {
         for (Teacher teacher1:teacherHashMap.keySet()){
             if(Objects.equals(teacher,teacher1.getName())){
+                List<String> temp=teacherHashMap.get(teacher1);
+                for(String str:temp){
+                    studentHashMap.remove(str);
+                }
                 teacherHashMap.remove(teacher1);
                 return;
             }
@@ -73,6 +77,12 @@ public class StudentRepository {
     }
 
     public void deletingAllTeachersFromDB() {
+        for (List<String> str:teacherHashMap.values()){
+            List<String> temp=str;
+            for(String str1:temp){
+                studentHashMap.remove(str1);
+            }
+        }
         teacherHashMap.clear();
     }
 }
